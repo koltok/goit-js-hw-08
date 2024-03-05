@@ -66,24 +66,27 @@ const images = [
   },
 ];
 
-const galEl = images.map((im) => {
-    const item = document.createElement("li");
-    item.classList.add("gallery-item");
-    gal.append(item);
-    const link = document.createElement("a");
-    link.classList.add("gallery-link");
-    link.href = im.original;
-    item.append(link);
-    const image = document.createElement("img");
-    image.classList.add("gallery-image");
-    image.src = im.preview;
-    image.alt = im.description;
-    image.dataset.source = im.original;
-    link.append(image);
-}
-)
+const galEl = images.map((im) => `<li class="gallery-item"><a class="gallery-link" href = ${im.original}><img class="gallery-image" src = ${im.preview} alt = ${im.description} data-source = ${im.original} /> </a> </li>`)
+ .join("");
+    
+gal.insertAdjacentHTML("afterbegin", galEl);
+    
+  //  const item = document.createElement("li");
+ //item.classList.add("gallery-item");
+   // gal.append(item);
+    //const link = document.createElement("a");
+    //link.classList.add("gallery-link");
+    //link.href = im.original;
+    //item.append(link);
+    //const image = document.createElement("img");
+    //image.classList.add("gallery-image");
+    //image.src = im.preview;
+    //image.alt = im.description;
+    //image.dataset.source = im.original;
+    //link.append(image);
 
-gal.addEventListener("click", function (event) {
+const galImage = document.querySelector(".gallery-image");
+galImage.addEventListener("click", function (event) {
     console.log(event.target.dataset.source);
     
 

@@ -71,44 +71,33 @@ const galEl = images.map((im) => `<li class="gallery-item"><a class="gallery-lin
     
 gal.insertAdjacentHTML("afterbegin", galEl);
     
-  //  const item = document.createElement("li");
- //item.classList.add("gallery-item");
-   // gal.append(item);
-    //const link = document.createElement("a");
-    //link.classList.add("gallery-link");
-    //link.href = im.original;
-    //item.append(link);
-    //const image = document.createElement("img");
-    //image.classList.add("gallery-image");
-    //image.src = im.preview;
-    //image.alt = im.description;
-    //image.dataset.source = im.original;
-    //link.append(image);
-
+ 
 const galImage = document.querySelector(".gallery-image");
-galImage.addEventListener("click", function (event) {
-    console.log(event.target.dataset.source);
+gal.addEventListener("click", function (event) {
+    if (event.target != gal) {
+        console.log(event.target.dataset.source);
     
 
-const instance = basicLightbox.create(`
+        const instance = basicLightbox.create(`
     <div class="modal">
        <img class = "foto" />
         <a></a>
     </div>
 `, {
-    onShow: (instance) => {
-        instance.element().querySelector('a').onclick = instance.close
+            onShow: (instance) => {
+                instance.element().querySelector('a').onclick = instance.close
+            }
+        })
+
+        instance.show()
+
+        const modalForm = document.querySelector(".modal");
+        const modalFoto = document.querySelector(".foto");
+        modalFoto.src = event.target.dataset.source;
+        modalFoto.alt = event.target.alt;
+    
+        //image.append(modalForm);
     }
-})
-
-    instance.show()
-
-  
-    const modalForm = document.querySelector(".modal");
-    const modalFoto = document.querySelector(".foto");
-    modalFoto.src = event.target.dataset.source;
-    modalFoto.alt = event.target.alt;
-    //image.append(modalForm);
 });
 
 

@@ -73,32 +73,36 @@ gal.insertAdjacentHTML("afterbegin", galEl);
     
  
 const galImage = document.querySelector(".gallery-image");
-gal.addEventListener("click", function (event) {
-    if (event.target != gal) {
-        console.log(event.target.dataset.source);
-    
 
-        const instance = basicLightbox.create(`
+gal.addEventListener
+    ("click", function (event)
+
+{
+    if (event.target.nodeName === 'IMG')
+ {
+        console.log(event.target.dataset.source);
+
+        const instance = basicLightbox.create
+  (`
     <div class="modal">
        <img class = "foto" />
         <a></a>
-    </div>
-`, {
+    </div>`,
+        {
             onShow: (instance) => {
                 instance.element().querySelector('a').onclick = instance.close
-            }
-        })
+               }
+        }
+  )
 
         instance.show()
-
+        }
         const modalForm = document.querySelector(".modal");
         const modalFoto = document.querySelector(".foto");
         modalFoto.src = event.target.dataset.source;
         modalFoto.alt = event.target.alt;
-    
-        //image.append(modalForm);
-    }
-});
+}
+);
 
 
 //const galEl = images.map((im) => '<li class="gallery-item"><a class="gallery-link" href="large-image.jpg"><img class="gallery-image" src = "im.preview" data - source="${im.original}" alt = "im.description" /> </a> </li>')

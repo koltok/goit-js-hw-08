@@ -79,8 +79,7 @@ gal.addEventListener
 
 {
     if (event.target.nodeName === 'IMG')
- {
-        console.log(event.target.dataset.source);
+ { console.log(event.target.dataset.source);
 
         const instance = basicLightbox.create
   (`
@@ -96,11 +95,13 @@ gal.addEventListener
   )
 
         instance.show()
+       
         }
         const modalForm = document.querySelector(".modal");
         const modalFoto = document.querySelector(".foto");
         modalFoto.src = event.target.dataset.source;
         modalFoto.alt = event.target.alt;
+        event.preventdefault();
 }
 );
 

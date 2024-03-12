@@ -73,11 +73,10 @@ gal.insertAdjacentHTML("afterbegin", galEl);
     
  
 const galImage = document.querySelector(".gallery-image");
-
+ 
 gal.addEventListener
-    ("click", function (event)
-
-{
+    ("click", function (event) {
+        event.preventdefault();
     if (event.target.nodeName === 'IMG')
  { console.log(event.target.dataset.source);
 
@@ -101,7 +100,6 @@ gal.addEventListener
         const modalFoto = document.querySelector(".foto");
         modalFoto.src = event.target.dataset.source;
         modalFoto.alt = event.target.alt;
-        event.preventdefault();
 }
 );
 

@@ -74,9 +74,8 @@ gal.insertAdjacentHTML("afterbegin", galEl);
  
 const galImage = document.querySelector(".gallery-image");
  
-gal.addEventListener
-    ("click", function (event) {
-        event.preventdefault();
+gal.addEventListener("click", function (event) {
+    event.preventDefault();
     if (event.target.nodeName === 'IMG')
  { console.log(event.target.dataset.source);
 

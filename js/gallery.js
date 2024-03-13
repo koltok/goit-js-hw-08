@@ -77,9 +77,7 @@ const galImage = document.querySelector(".gallery-image");
 gal.addEventListener("click", function (event) {
     event.preventDefault();
     if (event.target.nodeName === 'IMG')
- { console.log(event.target.dataset.source);
-
-        const instance = basicLightbox.create
+ {const instance = basicLightbox.create
   (`
     <div class="modal">
        <img class = "foto" />
@@ -93,32 +91,16 @@ gal.addEventListener("click", function (event) {
   )
 
         instance.show()
-       
-        }
+        
         const modalForm = document.querySelector(".modal");
         const modalFoto = document.querySelector(".foto");
         modalFoto.src = event.target.dataset.source;
         modalFoto.alt = event.target.alt;
+        }
 }
 );
 
 
-//const galEl = images.map((im) => '<li class="gallery-item"><a class="gallery-link" href="large-image.jpg"><img class="gallery-image" src = "im.preview" data - source="${im.original}" alt = "im.description" /> </a> </li>')
-//.join("");
-
-//gal.insertAdjacentHTML("afterbegin", galEl);
-   
-
-//const item = document.createElement("li");
-//item.classList.add("gallery-item");
-//gal.insertAdjacentHTML("afterbegin", item);
-//item.setAttribute("", "");
-//const link = document.createElement("a");
-//link.classList.add("gallery-link");
-//item.setAttribute("", "");
-//const image = document.createElement("img");
-//image.classList.add("gallery-image");
-//item.setAttribute("", "");
 
 
 
